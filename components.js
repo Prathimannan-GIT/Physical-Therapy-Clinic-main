@@ -51,14 +51,14 @@ if (window.Alpine) {
 const components = {
     header: (activePage) => `
         <div x-data="{ mobileMenu: false }">
-            <header class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 h-[70px] overflow-hidden">
-            <div class="container mx-auto px-4 h-full flex items-center justify-between max-w-full overflow-hidden">
+            <header class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 h-[70px]">
+            <div class="w-full px-5 h-full flex items-center justify-between flex-nowrap">
                 <!-- Logo -->
-                <a href="index.html" class="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg p-1 shrink-0">
-                    <div class="h-10 w-10 bg-teal-700 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-110">
-                        <i class="fas fa-bone rotate-45"></i>
+                <a href="index.html" class="flex items-center gap-1.5 group focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg p-1 shrink-0 max-w-[70%] overflow-hidden">
+                    <div class="h-8 w-8 sm:h-10 sm:w-10 bg-teal-700 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-110 shrink-0">
+                        <i class="fas fa-bone rotate-45 text-xs sm:text-base"></i>
                     </div>
-                    <span class="text-lg xl:text-xl font-bold text-teal-700 dark:text-teal-400 font-outfit uppercase tracking-tight transition-colors">Bones <span class="text-orange-500">&</span> Balance</span>
+                    <span class="text-sm sm:text-lg xl:text-xl font-bold text-teal-700 dark:text-teal-400 font-outfit uppercase tracking-tight transition-colors truncate whitespace-nowrap">Bones <span class="text-orange-500">&</span> Balance</span>
                 </a>
 
                 <!-- Desktop Nav -->
