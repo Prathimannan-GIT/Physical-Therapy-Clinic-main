@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #0f766e;
+    --primary-dark: #115e59;
+    --accent: #f97316;
+    --accent-hover: #ea580c;
+    --bg-light: #f8fafc;
+    --bg-dark: #0f172a;
+    --card-light: #ffffff;
+    --card-dark: #1e293b;
+    --text-light: #1e293b;
+    --text-dark: #f8fafc;
+    --text-muted-light: #64748b;
+    --text-muted-dark: #94a3b8;
+    --focus-ring: 0 0 0 3px rgba(249, 115, 22, 0.5);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+* {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Base Styles */
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.border-primary {
+    border-color: var(--primary);
+}
+
+.bg-accent {
+    background-color: var(--accent);
+}
+
+.hover-bg-accent:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Dark Mode Utilities */
+.dark body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.dark .text-muted {
+    color: var(--text-muted-dark);
+}
+
+/* Consolidate Dark Mode Overrides */
+.dark .text-slate-900,
+.dark .text-slate-800 {
+    color: #f8fafc;
+}
+
+.dark .text-slate-700 {
+    color: #f1f5f9;
+}
+
+.dark .text-slate-600 {
+    color: #cbd5e1;
+}
+
+.dark .text-slate-500 {
+    color: #94a3b8;
+}
+
+.dark .bg-white {
+    background-color: var(--card-dark) !important;
+}
+
+.dark .bg-slate-50 {
+    background-color: var(--bg-dark) !important;
+}
+
+.dark .bg-slate-100 {
+    background-color: #1e293b !important;
+}
+
+.dark .border-slate-100,
+.dark .border-slate-200 {
+    border-color: #334155 !important;
+}
+
+.dark section.bg-white {
+    background-color: var(--bg-dark) !important;
+}
+
+.dark section.bg-slate-50 {
+    background-color: #0f172a !important;
+}
+
+.dark section.bg-slate-100 {
+    background-color: #1e293b !important;
+}
+
+
+
+/* Navigation */
+.nav-link {
+    transition: all 0.2s;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--accent);
+    outline: none;
+}
+
+.nav-link:focus::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent);
+}
+
+.nav-link.active {
+    color: var(--accent);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    transform: scale(1);
+    height: 48px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-width: 1px;
+    border-color: #f1f5f9;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.dark .card {
+    background-color: var(--card-dark);
+    border-color: #334155;
+}
+
+/* Animations */
+[data-aos] {
+    pointer-events: none;
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
+
+/* Form Styles */
+.form-input {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-radius: 0.5rem;
+    border-width: 1px;
+    border-color: #cbd5e1;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition: all 0.2s;
+}
+
+.form-input:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+.dark .form-input {
+    background-color: #0f172a;
+    border-color: #334155;
+    color: white;
+}
+
+/* Footer Dark Mode Support */
+footer {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark footer {
+    background-color: #020617 !important;
+    border-top: 1px solid #1e293b;
+}
+
+/* Custom Accessibility Helpers */
+.focus-visible:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Fix for Card Hover Animation */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.card:focus-within {
+    box-shadow: var(--focus-ring);
+}
+
+/* Horizontal Alignment for Insurance Section Button on Home 2 */
+.insurance-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+/* Stay Healthy Section Buttons Consistency */
+.stay-healthy-btn {
+    min-width: 180px;
+    text-align: center;
+}
+
+/* Mobile Active highlights improvement */
+.mobile-nav-active {
+    background-color: var(--primary) !important;
+    color: white !important;
+    box-shadow: 0 4px 6px -1px rgba(15, 118, 110, 0.2);
+}
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" x-data :class="{ 'dark': $store.theme.dark }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Bones & Balance | Patient Registration</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+    <link rel="apple-touch-icon" href="assets/favicon.svg?v=3">
+    <link rel="shortcut icon" href="assets/favicon.svg?v=3">
+
+    <!-- Tailwind Config -->
+    <script>
+        window.tailwind = {
+            config: { darkMode: 'class' }
+        };
+        if (localStorage.getItem('dark') === 'true' ||
+            (!('dark' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+    <script src="components.js" defer></script>
+</head>
+
+<body
+    class="bg-slate-50 dark:bg-slate-950 min-h-screen flex items-center justify-center p-0 md:p-6 transition-colors duration-300">
+
+    <div
+        class="max-w-5xl w-full bg-white dark:bg-slate-900 md:rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[700px]">
+
+        <!-- Left Side: Image/Branding (Hidden on mobile) -->
+        <div
+            class="hidden md:flex md:w-2/5 bg-slate-50 dark:bg-slate-900 relative p-12 flex-col justify-between text-slate-900 overflow-hidden border-r border-slate-100 dark:border-slate-800 transition-colors duration-300">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800"
+                    alt="Orthopedic Rehab" class="w-full h-full object-cover opacity-10 dark:opacity-20">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/60 to-transparent dark:from-slate-900 dark:via-slate-900/60">
+                </div>
+            </div>
+
+            <div class="relative z-10">
+                <a href="index.html"
+                    class="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg p-1 shrink-0">
+                    <div
+                        class="h-10 w-10 bg-teal-700 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-110">
+                        <i class="fas fa-bone rotate-45"></i>
+                    </div>
+                    <span
+                        class="text-lg xl:text-xl font-bold text-teal-700 dark:text-teal-400 font-outfit uppercase tracking-tight transition-colors">Bones
+                        <span class="text-orange-500">&</span> Balance</span>
+                </a>
+            </div>
+
+            <div class="relative z-10">
+                <h2 class="text-4xl font-bold mb-6 leading-tight text-slate-800 dark:text-slate-100">Join Our <br><span
+                        class="text-orange-600">Healing</span> Community</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+                        <i class="fas fa-check-circle text-orange-600"></i>
+                        <span>Personalized Treatment Plans</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+                        <i class="fas fa-check-circle text-orange-600"></i>
+                        <span>24/7 Secure Portal Access</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+                        <i class="fas fa-check-circle text-orange-600"></i>
+                        <span>Direct Messaging with Therapists</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div
+                class="relative z-10 flex items-center gap-4 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+                <span>Verified Provider</span>
+                <span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+                <span>HIPAA Compliant</span>
+            </div>
+        </div>
+
+        <!-- Right Side: Signup Form -->
+        <div
+            class="w-full md:w-3/5 p-8 md:p-16 flex flex-col justify-center items-center bg-white dark:bg-slate-800 overflow-y-auto">
+            <!-- Mobile Logo -->
+            <div class="md:hidden flex justify-center mb-10">
+                <a href="index.html"
+                    class="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg p-1 shrink-0">
+                    <div
+                        class="h-10 w-10 bg-teal-700 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-110">
+                        <i class="fas fa-bone rotate-45"></i>
+                    </div>
+                    <span
+                        class="text-lg xl:text-xl font-bold text-teal-700 dark:text-teal-400 font-outfit uppercase tracking-tight transition-colors">Bones
+                        <span class="text-orange-500">&</span> Balance</span>
+                </a>
+            </div>
+
+            <div class="max-w-lg w-full mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2 text-slate-800 dark:text-slate-100">Create Account</h2>
+                    <p class="text-slate-500 dark:text-slate-400">Start your journey to a pain-free life today.</p>
+                </div>
+
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                    <div class="md:col-span-1">
+                        <label class="block text-sm font-bold mb-2 text-slate-800 dark:text-slate-200">First
+                            Name</label>
+                        <input type="text" placeholder="John" class="form-input border-slate-300">
+                    </div>
+                    <div class="md:col-span-1">
+                        <label class="block text-sm font-bold mb-2 text-slate-800 dark:text-slate-200">Last Name</label>
+                        <input type="text" placeholder="Doe" class="form-input border-slate-300">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-bold mb-2 text-slate-800 dark:text-slate-200">Email
+                            Address</label>
+                        <input type="email" placeholder="john@example.com" class="form-input border-slate-300">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2 text-slate-800 dark:text-slate-200">Password</label>
+                        <input type="password" placeholder="••••••••" class="form-input border-slate-300">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2 text-slate-800 dark:text-slate-200">Confirm
+                            Password</label>
+                        <input type="password" placeholder="••••••••" class="form-input border-slate-300">
+                    </div>
+
+                    <div class="md:col-span-2 pt-2">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="terms" class="mt-1 w-4 h-4 text-teal-600 rounded cursor-pointer">
+                            <label for="terms"
+                                class="ml-2 text-sm text-slate-700 dark:text-slate-300 leading-snug cursor-pointer">
+                                I agree to the <a href="terms.html"
+                                    class="text-teal-600 font-bold hover:text-orange-500 transition-colors">Terms of
+                                    Service</a> and <a href="privacy.html"
+                                    class="text-teal-600 font-bold hover:text-orange-500 transition-colors">Privacy
+                                    Policy</a>.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <button type="submit"
+                            class="btn btn-primary w-full text-center py-4 hover:shadow-lg focus:ring-4 focus:ring-teal-700/50 transition-all font-bold">Create
+                            Patient Account</button>
+                    </div>
+                </form>
+
+                <div class="relative my-10">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-slate-100 dark:border-slate-800"></div>
+                    </div>
+                    <div
+                        class="relative flex justify-center text-xs uppercase font-bold tracking-widest text-slate-500">
+                        <span class="px-4 bg-white dark:bg-slate-800 relative z-10">Social Connect</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <button
+                        class="flex items-center justify-center gap-3 py-3 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-teal-500 hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 transition-all duration-300 outline-none">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" class="h-4 w-4"
+                            alt="Google">
+                        <span class="text-sm font-bold text-slate-700 dark:text-slate-300">Google</span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center gap-3 py-3 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-teal-500 hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 transition-all duration-300 outline-none">
+                        <i class="fab fa-facebook text-blue-600 text-lg"></i>
+                        <span class="text-sm font-bold text-slate-700 dark:text-slate-300">Facebook</span>
+                    </button>
+                </div>
+
+                <p class="mt-10 text-center text-sm text-slate-500 w-full">
+                    Already have an account? <a href="login.html"
+                        class="text-teal-600 font-bold hover:text-orange-500 transition-colors">Log In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" x-data :class="{ 'dark': $store.theme.dark }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Bones & Balance</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+    <link rel="apple-touch-icon" href="assets/favicon.svg?v=3">
+    <link rel="shortcut icon" href="assets/favicon.svg?v=3">
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+    <script src="components.js" defer></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 pt-[70px]">
+    <div id="header-placeholder"></div>
+
+    <main class="py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h1 class="text-4xl font-bold mb-10">Privacy Policy</h1>
+            <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 space-y-6">
+                <p>Last updated: January 20, 2024</p>
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10">1. Data Collection</h2>
+                <p>Bones & Balance Physical Therapy ("we", "us", or "our") collects personal information including but
+                    not limited to name, contact details, medical history, and insurance information specifically for
+                    the purpose of providing physical therapy services.</p>
+
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10">2. HIPAA Compliance</h2>
+                <p>We are fully committed to protecting your health information. All medical data is handled in strict
+                    accordance with the Health Insurance Portability and Accountability Act (HIPAA). We use secure,
+                    encrypted servers for all patient portal communications and treatment records.</p>
+
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10">3. Third-Party Sharing</h2>
+                <p>We only share your information with third parties (such as insurance providers or specialist
+                    physicians) when necessary for your treatment or insurance reimbursement, and only with your
+                    explicit consent.</p>
+
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10">4. Your Rights</h2>
+                <p>You have the right to request a copy of your medical records, request corrections to your
+                    information, and revoke consent for data sharing at any time.</p>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            initPage('privacy');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" x-data :class="{ 'dark': $store.theme.dark }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard | Bones & Balance</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+    <link rel="apple-touch-icon" href="assets/favicon.svg?v=3">
+    <link rel="shortcut icon" href="assets/favicon.svg?v=3">
+
+    <!-- Theme Toggle Script (Rule 4) -->
+    <script>
+        window.tailwind = {
+            config: { darkMode: 'class' }
+        };
+        if (localStorage.getItem('dark') === 'true' ||
+            (!('dark' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 min-h-screen" x-data="{ sidebar: false, activeTab: 'dashboard' }">
+
+    <!-- Mobile Dashboard Header (Rule 49) -->
+    <div
+        class="lg:hidden flex items-center justify-between p-4 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <a href="index.html" class="flex items-center gap-2 group">
+            <div class="h-8 w-8 bg-teal-700 rounded flex items-center justify-center text-white text-xs">
+                <i class="fas fa-bone rotate-45"></i>
+            </div>
+            <span class="font-bold text-teal-700 dark:text-teal-400">B&B Portal</span>
+        </a>
+        <button @click="sidebar = true" class="p-2 text-slate-600 dark:text-slate-400">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <aside :class="sidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'"
+        class="fixed top-0 left-0 h-full w-72 bg-slate-900 text-slate-300 z-50 transition-transform duration-300 overflow-y-auto">
+        <div class="p-8 flex flex-col h-full">
+            <div class="flex items-center justify-between mb-10">
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+                    <div
+                        class="h-10 w-10 bg-orange-500 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-110">
+                        <i class="fas fa-bone rotate-45"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white font-outfit uppercase">Bones <span
+                            class="text-orange-500">&</span> Balance</span>
+                </a>
+                <button @click="sidebar = false" class="lg:hidden p-2"><i class="fas fa-times"></i></button>
+            </div>
+
+            <nav class="flex-grow space-y-2">
+                <!-- Rule 11: Active menu item clearly distinguished -->
+                <button @click="activeTab = 'dashboard'"
+                    :class="activeTab === 'dashboard' ? 'bg-orange-500 text-white' : 'hover:bg-slate-800'"
+                    class="w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all">
+                    <i class="fas fa-th-large w-6"></i>
+                    <span class="font-bold">Overview</span>
+                </button>
+                <button @click="activeTab = 'plan'"
+                    :class="activeTab === 'plan' ? 'bg-orange-500 text-white' : 'hover:bg-slate-800'"
+                    class="w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all">
+                    <i class="fas fa-clipboard-list w-6"></i>
+                    <span class="font-bold">Treatment Plan</span>
+                </button>
+                <button @click="activeTab = 'appointments'"
+                    :class="activeTab === 'appointments' ? 'bg-orange-500 text-white' : 'hover:bg-slate-800'"
+                    class="w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all">
+                    <i class="fas fa-calendar-alt w-6"></i>
+                    <span class="font-bold">Appointments</span>
+                </button>
+                <button @click="activeTab = 'exercises'"
+                    :class="activeTab === 'exercises' ? 'bg-orange-500 text-white' : 'hover:bg-slate-800'"
+                    class="w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all">
+                    <i class="fas fa-play-circle w-6"></i>
+                    <span class="font-bold">Exercise Videos</span>
+                </button>
+                <button @click="activeTab = 'messages'"
+                    :class="activeTab === 'messages' ? 'bg-orange-500 text-white' : 'hover:bg-slate-800'"
+                    class="w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all">
+                    <i class="fas fa-comment-medical w-6"></i>
+                    <span class="font-bold">Secure Messaging</span>
+                </button>
+            </nav>
+
+            <div class="mt-auto pt-8 border-t border-slate-800">
+                <div class="flex items-center gap-3 px-4 py-2 mb-6">
+                    <div
+                        class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center font-bold text-white">
+                        JD</div>
+                    <div>
+                        <p class="font-bold text-white leading-none">John Doe</p>
+                        <p class="text-xs text-slate-500">Member since 2023</p>
+                    </div>
+                </div>
+                <!-- Logout Option (Rule 49) -->
+                <a href="login.html"
+                    class="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-red-500/10 hover:text-red-500 transition-all text-slate-400">
+                    <i class="fas fa-sign-out-alt w-6"></i>
+                    <span class="font-bold">Logout</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="lg:ml-72 p-4 md:p-8">
+        <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
+            <div>
+                <h1 class="text-3xl font-bold">Patient Overview</h1>
+                <p class="text-slate-500">Welcome back, John! Here's your recovery progress.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <button @click="$store.theme.toggle()"
+                    class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:border-orange-500 transition-all focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <template x-if="!$store.theme.dark"><span class="flex items-center gap-2"><i
+                                class="fas fa-moon"></i> <span
+                                class="text-xs font-bold uppercase lg:inline hidden">Dark</span></span></template>
+                    <template x-if="$store.theme.dark"><span class="flex items-center gap-2"><i
+                                class="fas fa-sun text-orange-500"></i> <span
+                                class="text-xs font-bold uppercase lg:inline hidden">Light</span></span></template>
+                </button>
+                <a href="#" class="btn btn-primary">Book New Session</a>
+            </div>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <div class="card p-6 border-l-4 border-l-teal-500">
+                <p class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Sessions Completed</p>
+                <div class="flex items-baseline gap-2">
+                    <span class="text-3xl font-bold">12</span>
+                    <span class="text-slate-400 text-sm">of 15</span>
+                </div>
+            </div>
+            <div class="card p-6 border-l-4 border-l-orange-500">
+                <p class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Pain Level (Avg)</p>
+                <div class="flex items-baseline gap-2">
+                    <span class="text-3xl font-bold">3.2</span>
+                    <span class="text-teal-500 text-sm font-bold">↓ 1.5 this week</span>
+                </div>
+            </div>
+            <div class="card p-6 border-l-4 border-l-blue-500">
+                <p class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Compliance Rate</p>
+                <div class="flex items-baseline gap-2">
+                    <span class="text-3xl font-bold">92%</span>
+                    <span class="text-slate-400 text-sm">Target > 85%</span>
+                </div>
+            </div>
+            <div class="card p-6 border-l-4 border-l-purple-500">
+                <p class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Next Session</p>
+                <div class="flex items-baseline gap-2">
+                    <span class="text-lg font-bold">Mon, Oct 14</span>
+                    <span class="text-slate-400 text-sm">at 10:00 AM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts and Details -->
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+            <!-- Progress Chart (Rule 47: Reduced size) -->
+            <div class="xl:col-span-2 card p-8">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-xl font-bold">Mobility Progress</h3>
+                    <!-- Rule 49: Filter options accessed via icon -->
+                    <div class="relative" x-data="{ open: false }">
+                        <button @click="open = !open"
+                            class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                            <i class="fas fa-filter text-slate-500"></i>
+                        </button>
+                        <div x-show="open" @click.away="open = false"
+                            class="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-xl py-2 z-20">
+                            <button class="w-full text-left px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/20">Last 7
+                                Days</button>
+                            <button
+                                class="w-full text-left px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/20 font-bold text-teal-700">Last
+                                30 Days</button>
+                            <button class="w-full text-left px-4 py-2 hover:bg-teal-50 dark:hover:bg-teal-900/20">All
+                                Time</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-[250px] w-full"> <!-- Reduced size container -->
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Treatment Summary -->
+            <div class="card p-8 bg-teal-700 text-white">
+                <h3 class="text-xl font-bold mb-6">Recent Treatment</h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0"><i
+                                class="fas fa-running"></i></div>
+                        <div>
+                            <p class="font-bold">Manual Therapy</p>
+                            <p class="text-sm text-teal-100/70">Oct 11 • Dr. Simmons</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0"><i
+                                class="fas fa-dumbbell"></i></div>
+                        <div>
+                            <p class="font-bold">Strength Routine #B-4</p>
+                            <p class="text-sm text-teal-100/70">Oct 09 • Dr. Simmons</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 pt-8 border-t border-white/10">
+                    <p class="text-sm text-teal-100/70 mb-4 font-bold uppercase tracking-widest">Next Milestone</p>
+                    <p class="text-lg font-bold mb-6 italic">"Achieve 110° flexion in left knee without assistance."</p>
+                    <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                        <div class="bg-orange-500 h-full w-[80%] rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Progress Chart Data
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                datasets: [{
+                    label: 'Range of Motion (°)',
+                    data: [65, 72, 85, 82, 95, 105],
+                    borderColor: '#0f766e',
+                    backgroundColor: 'rgba(15, 118, 110, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

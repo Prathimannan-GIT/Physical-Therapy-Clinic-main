@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" x-data :class="{ 'dark': $store.theme.dark }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How it Works | Bones & Balance</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+    <link rel="apple-touch-icon" href="assets/favicon.svg?v=3">
+    <link rel="shortcut icon" href="assets/favicon.svg?v=3">
+
+    <!-- Theme Toggle Script (Rule 4) -->
+    <script>
+        window.tailwind = {
+            config: { darkMode: 'class' }
+        };
+        if (localStorage.getItem('dark') === 'true' ||
+            (!('dark' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="components.js" defer></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 pt-[70px]">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Title -->
+        <section class="py-20 bg-white dark:bg-slate-950 text-center">
+            <div class="container mx-auto px-4">
+                <h1 class="text-5xl font-bold mb-6">Your Journey to Recovery</h1>
+                <p class="text-xl text-slate-500 max-w-2xl mx-auto">Five simple steps to getting you back to peak
+                    performance and a pain-free life.</p>
+            </div>
+        </section>
+
+        <!-- Journey Steps -->
+        <section class="py-24 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto space-y-24">
+
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row items-center gap-16" data-aos="fade-right">
+                        <div class="md:w-1/2 text-center md:text-left">
+                            <span class="text-orange-500 font-bold uppercase tracking-widest text-sm">Step 01</span>
+                            <h2 class="text-3xl font-bold mt-4 mb-6">Book Your Appointment</h2>
+                            <p class="text-lg text-slate-500 dark:text-slate-400">Schedule your initial evaluation
+                                online through our portal or give us a call. We'll match you with the best specialist
+                                for your needs.</p>
+                        </div>
+                        <div class="md:w-1/2 bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-xl">
+                            <i class="fas fa-calendar-check text-7xl text-teal-700/20"></i>
+                            <div class="mt-8 space-y-4">
+                                <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded-full w-3/4"></div>
+                                <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded-full w-1/2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-16" data-aos="fade-left">
+                        <div class="md:w-1/2 text-center md:text-left">
+                            <span class="text-orange-500 font-bold uppercase tracking-widest text-sm">Step 02</span>
+                            <h2 class="text-3xl font-bold mt-4 mb-6">Initial Evaluation</h2>
+                            <p class="text-lg text-slate-500 dark:text-slate-400">A board-certified therapist will
+                                perform a comprehensive assessment of your mobility, strength, and biomechanics.</p>
+                        </div>
+                        <div class="md:w-1/2 bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-xl">
+                            <i class="fas fa-clipboard-check text-7xl text-orange-500/20"></i>
+                            <div class="mt-8 space-y-4">
+                                <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded-full w-full"></div>
+                                <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded-full w-2/3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row items-center gap-16" data-aos="fade-right">
+                        <div class="md:w-1/2 text-center md:text-left">
+                            <span class="text-orange-500 font-bold uppercase tracking-widest text-sm">Step 03</span>
+                            <h2 class="text-3xl font-bold mt-4 mb-6">Custom Treatment Plan</h2>
+                            <p class="text-lg text-slate-500 dark:text-slate-400">We create a data-driven roadmap for
+                                your recovery, including manual therapy, exercises, and milestone tracking.</p>
+                        </div>
+                        <div class="md:w-1/2 bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-xl">
+                            <i class="fas fa-map-marked-alt text-7xl text-blue-500/20"></i>
+                            <div class="mt-8 space-y-4">
+                                <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded-full w-3/4"></div>
+                                <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded-full w-1/2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-16" data-aos="fade-left">
+                        <div class="md:w-1/2 text-center md:text-left">
+                            <span class="text-orange-500 font-bold uppercase tracking-widest text-sm">Step 04</span>
+                            <h2 class="text-3xl font-bold mt-4 mb-6">Therapy Sessions</h2>
+                            <p class="text-lg text-slate-500 dark:text-slate-400">One-on-one sessions with your
+                                dedicated therapist. We adjust the protocol in real-time based on your progress.</p>
+                        </div>
+                        <div class="md:w-1/2 bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-xl">
+                            <i class="fas fa-walking text-7xl text-purple-500/20"></i>
+                            <div class="mt-8 space-y-4">
+                                <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded-full w-full"></div>
+                                <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded-full w-2/3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex flex-col md:flex-row items-center gap-16" data-aos="fade-right">
+                        <div class="md:w-1/2 text-center md:text-left">
+                            <span class="text-orange-500 font-bold uppercase tracking-widest text-sm">Step 05</span>
+                            <h2 class="text-3xl font-bold mt-4 mb-6">Tracking & Discharge</h2>
+                            <p class="text-lg text-slate-500 dark:text-slate-400">As you hit your milestones, we'll
+                                provide a long-term maintenance plan and discharge you back to your active life.</p>
+                        </div>
+                        <div class="md:w-1/2 bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-xl">
+                            <i class="fas fa-flag-checkered text-7xl text-teal-700/20"></i>
+                            <div class="mt-8 space-y-4">
+                                <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded-full w-3/4"></div>
+                                <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded-full w-1/2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-24 bg-teal-700 text-white text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-8">Ready to take the first step?</h2>
+                <a href="contact.html" class="btn btn-accent px-12 py-4 h-auto text-xl">Book Evaluation Now</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            initPage('howitworks');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" x-data :class="{ 'dark': $store.theme.dark }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bones & Balance | Move Better. Live Stronger. Pain-Free.</title>
+    <meta name="description"
+        content="Personalized physical therapy for faster recovery. Licensed therapists, insurance accepted, and expert care.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+    <link rel="apple-touch-icon" href="assets/favicon.svg?v=3">
+    <link rel="shortcut icon" href="assets/favicon.svg?v=3">
+
+    <!-- Theme Toggle Script (Rule 4) -->
+    <script>
+        window.tailwind = {
+            config: { darkMode: 'class' }
+        };
+        if (localStorage.getItem('dark') === 'true' ||
+            (!('dark' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="components.js" defer></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 pt-[70px]">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center overflow-hidden bg-slate-900">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2000"
+                    alt="Physical Therapy Clinic" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-slate-900/60 dark:bg-slate-950/80"></div>
+            </div>
+
+            <div class="container mx-auto px-4 z-10 text-center">
+                <div class="max-w-4xl mx-auto" data-aos="zoom-in">
+                    <span
+                        class="inline-block px-4 py-1.5 bg-orange-500/10 text-orange-500 rounded-full font-bold text-sm tracking-wider uppercase mb-6 border border-orange-500/20">Welcome
+                        to Bones & Balance</span>
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1]">Move Better. Live
+                        Stronger.<br><span class="text-teal-400">Pain-Free.</span></h1>
+                    <p class="text-xl text-slate-300 mb-10 mx-auto max-w-2xl leading-relaxed">Personalized physical
+                        therapy designed for faster recovery and long-term health. Our expert therapists are here to
+                        help you get back to what you love.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="contact.html"
+                            class="btn btn-accent px-12 focus:ring-4 focus:ring-orange-500/50 hover:shadow-xl hover:shadow-orange-500/20 transition-all">Book
+                            Appointment</a>
+                        <a href="#"
+                            class="btn bg-white/10 text-white hover:bg-white/20 hover:text-orange-400 backdrop-blur-sm px-12 focus:ring-4 focus:ring-white/30 transition-all">Free
+                            Consultation</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            </div>
+        </section>
+
+        <!-- Trust Signals / Stats -->
+        <section class="py-12 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="flex items-center gap-4 px-6 py-4" data-aos="fade-up" data-aos-delay="0">
+                        <div
+                            class="w-12 h-12 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400 text-xl font-bold">
+                            15+</div>
+                        <div>
+                            <p class="font-bold dark:text-white">Expert Therapists</p>
+                            <p class="text-sm text-slate-500">Board Certified</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 px-6 py-4" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 text-xl font-bold">
+                            5k+</div>
+                        <div>
+                            <p class="font-bold dark:text-white">Happy Patients</p>
+                            <p class="text-sm text-slate-500">Recovery Success</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 px-6 py-4" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold">
+                            20+</div>
+                        <div>
+                            <p class="font-bold dark:text-white">Insurances</p>
+                            <p class="text-sm text-slate-500">Accepted Weekly</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 px-6 py-4" data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400 text-xl font-bold">
+                            4.9</div>
+                        <div>
+                            <p class="font-bold dark:text-white">Google Rating</p>
+                            <p class="text-sm text-slate-500">Average Review</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clinic Preview -->
+        <section class="py-24 bg-slate-50 dark:bg-slate-950">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span
+                        class="text-teal-700 dark:text-teal-400 font-bold tracking-widest uppercase text-sm">State-of-the-Art
+                        Care</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight">Advanced Facilities for <span
+                            class="text-teal-700">Faster Healing.</span></h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400">Our clinic combines the latest medical
+                        technology with a welcoming environment to ensure your recovery is both effective and
+                        comfortable.</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200"
+                                alt="Internal Facility" class="rounded-3xl shadow-2xl">
+                            <div class="absolute -bottom-10 -right-10 hidden md:block">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-1">Modern Equipment</p>
+                                    <p class="text-sm text-slate-500">Advanced rehab tools</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-1">Private Rooms</p>
+                                    <p class="text-sm text-slate-500">Individual treatment zones</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-1">Specialized Gym</p>
+                                    <p class="text-sm text-slate-500">Focused strength area</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-1">Hydrotherapy</p>
+                                    <p class="text-sm text-slate-500">Low impact recovery</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Benefits -->
+        <section class="py-24 bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold mb-6">Why Choose Bones & Balance?</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg">We don't just treat symptoms; we identify the
+                        root cause to ensure you stay healthy for the long term.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card p-10 hover:shadow-2xl hover:-translate-y-2 group" data-aos="fade-up"
+                        data-aos-delay="0">
+                        <div
+                            class="w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-2xl flex items-center justify-center text-teal-700 dark:text-teal-400 text-3xl mb-8 mx-auto transition-transform group-hover:scale-110 group-hover:bg-teal-700 group-hover:text-white">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Personalized Care</h3>
+                        <p class="text-slate-500">One-on-one sessions with your therapist to ensure every exercise and
+                            treatment is perfectly aligned with your goals.</p>
+                    </div>
+                    <div class="card p-10 hover:shadow-2xl hover:-translate-y-2 group" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div
+                            class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center text-orange-600 dark:text-orange-400 text-3xl mb-8 mx-auto transition-transform group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Rapid Recovery</h3>
+                        <p class="text-slate-500">Using evidence-based techniques to accelerate your healing process and
+                            get you moving again in record time.</p>
+                    </div>
+                    <div class="card p-10 hover:shadow-2xl hover:-translate-y-2 group" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div
+                            class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 text-3xl mb-8 mx-auto transition-transform group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Injury Prevention</h3>
+                        <p class="text-slate-500">Beyond recovery, we educate our patients on biomechanics and
+                            ergonomics to prevent future injuries and setbacks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Programs -->
+        <section class="py-24 bg-teal-900 text-white overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                    <circle cx="100" cy="50" r="50" fill="currentColor" />
+                </svg>
+            </div>
+
+            <div class="container mx-auto px-4">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center text-center md:text-left mb-16 gap-8">
+                    <div class="max-w-2xl" data-aos="fade-right">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Featured Programs</h2>
+                        <p class="text-teal-100 text-lg">Specialized treatment plans tailored to specific lifestyles and
+                            medical needs.</p>
+                    </div>
+                    <a href="programs.html"
+                        class="btn btn-accent px-8 hover:shadow-lg hover:shadow-orange-500/40 focus:ring-4 focus:ring-orange-500/50 transition-all hover:scale-105 hover:brightness-110"
+                        data-aos="fade-left">View All Programs</a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Rule 25: Displayed in balanced rows -->
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all cursor-pointer group flex flex-col h-full"
+                        data-aos="zoom-in" data-aos-delay="0">
+                        <span class="text-orange-400 font-bold mb-4 block">01</span>
+                        <h3 class="text-xl font-bold mb-4">Elite Athlete Performance</h3>
+                        <p class="text-teal-100/70 text-sm mb-6 line-clamp-3">Designed for professionals looking to
+                            optimize their
+                            movement and prevent sports-related trauma.</p>
+                        <i
+                            class="fas fa-arrow-right text-orange-400 group-hover:translate-x-2 group-focus:translate-x-2 transition-transform bg-white/5 p-2 rounded-full group-hover:bg-orange-500 group-hover:text-white mt-auto w-fit"></i>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all cursor-pointer group flex flex-col h-full"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <span class="text-orange-400 font-bold mb-4 block">02</span>
+                        <h3 class="text-xl font-bold mb-4">Active Aging & Balance</h3>
+                        <p class="text-teal-100/70 text-sm mb-6 line-clamp-3">Focusing on mobility, stability, and fall
+                            prevention
+                            for our senior community members.</p>
+                        <i
+                            class="fas fa-arrow-right text-orange-400 group-hover:translate-x-2 group-focus:translate-x-2 transition-transform bg-white/5 p-2 rounded-full group-hover:bg-orange-500 group-hover:text-white mt-auto w-fit"></i>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all cursor-pointer group flex flex-col h-full"
+                        data-aos="zoom-in" data-aos-delay="200">
+                        <span class="text-orange-400 font-bold mb-4 block">03</span>
+                        <h3 class="text-xl font-bold mb-4">Post-Op Rapid Rehab</h3>
+                        <p class="text-teal-100/70 text-sm mb-6 line-clamp-3">Targeted protocols for joint replacement,
+                            ligament
+                            repair, and spinal surgeries.</p>
+                        <i
+                            class="fas fa-arrow-right text-orange-400 group-hover:translate-x-2 group-focus:translate-x-2 transition-transform bg-white/5 p-2 rounded-full group-hover:bg-orange-500 group-hover:text-white mt-auto w-fit"></i>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all cursor-pointer group flex flex-col h-full"
+                        data-aos="zoom-in" data-aos-delay="300">
+                        <span class="text-orange-400 font-bold mb-4 block">04</span>
+                        <h3 class="text-xl font-bold mb-4">Workplace Wellness</h3>
+                        <p class="text-teal-100/70 text-sm mb-6 line-clamp-3">Ergonomic assessments and strain
+                            prevention for
+                            corporate professionals.</p>
+                        <i
+                            class="fas fa-arrow-right text-orange-400 group-hover:translate-x-2 group-focus:translate-x-2 transition-transform bg-white/5 p-2 rounded-full group-hover:bg-orange-500 group-hover:text-white mt-auto w-fit"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patient Testimonials -->
+        <section class="py-24 bg-white dark:bg-slate-900 overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold mb-4">Patient Success Stories</h2>
+                    <p class="text-slate-500">Real results from people who chose Bones & Balance.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" data-aos="fade-up">
+                    <!-- Rule 37: Single Read More CTA at bottom -->
+                    <div class="card p-8 bg-slate-50 border-none">
+                        <div class="flex gap-1 text-orange-500 mb-6">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-lg italic text-slate-700 dark:text-slate-300 mb-8">"After my knee surgery, I
+                            thought I'd never run again. The team at Bones & Balance didn't just help me walk; I
+                            finished my first marathon 10 months later!"</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150"
+                                    alt="Sarah Jenkins" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold dark:text-white">Sarah Jenkins</h4>
+                                <p class="text-sm text-slate-500">Sports Injury Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-8 bg-slate-50 border-none">
+                        <div class="flex gap-1 text-orange-500 mb-6">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-lg italic text-slate-700 dark:text-slate-300 mb-8">"The personalized attention
+                            here is unmatched. They took the time to understand my daily routine and fixed the chronic
+                            back pain that had bothered me for years."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150"
+                                    alt="Michael Chen" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold dark:text-white">Michael Chen</h4>
+                                <p class="text-sm text-slate-500">Chronic Pain Program</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-8 bg-slate-50 border-none text-center flex flex-col items-center justify-center">
+                        <h4 class="text-2xl font-bold mb-4">Your Story Starts Here</h4>
+                        <p class="text-slate-500 mb-8">Join thousands of others who have reclaimed their mobility and
+                            life.</p>
+                        <a href="#"
+                            class="btn btn-primary hover:shadow-xl hover:-translate-y-1 hover:brightness-110 transition-all focus:ring-4 focus:ring-teal-500/50">Read
+                            More Reviews</a>
+                    </div>
+                </div>
+
+                <!-- Rule 37 Footer CTA -->
+                <div class="text-center" data-aos="fade-up">
+                    <a href="#"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 font-bold hover:bg-teal-100 dark:hover:bg-teal-900/50 hover:text-orange-500 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-orange-500/30 transition-all group">
+                        View all 500+ Google Reviews <i
+                            class="fas fa-external-link-alt group-hover:rotate-45 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section (Site Directory) -->
+        <section class="py-24 bg-slate-100 dark:bg-slate-950">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold mb-4">Explore Our Clinic</h2>
+                    <p class="text-slate-500 max-w-2xl mx-auto">Quickly navigate to our most popular resources and
+                        programs.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service Menu -->
+                    <div class="space-y-6" data-aos="fade-up" data-aos-delay="0">
+                        <h3 class="text-xl font-bold flex items-center gap-3 text-teal-700 dark:text-teal-400">
+                            <i class="fas fa-concierge-bell"></i> Services
+                        </h3>
+                        <ul class="space-y-3">
+                            <li><a href="services.html"
+                                    class="text-slate-600 dark:text-slate-400 hover:text-orange-500 hover:translate-x-2 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-all"><i
+                                        class="fas fa-chevron-right text-[10px]"></i> Orthopedic Therapy</a></li>
+                            <li><a href="services.html"
+                                    class="text-slate-600 dark:text-slate-400 hover:text-orange-500 hover:translate-x-2 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-all"><i
+                                        class="fas fa-chevron-right text-[10px]"></i> Sports Rehab</a></li>
+                            <li><a href="services.html"
+                                    class="text-slate-600 dark:text-slate-400 hover:text-orange-500 hover:translate-x-2 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-all"><i
+                                        class="fas fa-chevron-right text-[10px]"></i> Tele-Rehab Sessions</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Conditions Menu -->
+                    <div class="space-y-6" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-bold flex items-center gap-3 text-teal-700 dark:text-teal-400">
+                            <i class="fas fa-stethoscope"></i> Conditions
+                        </h3>
+                        <ul class="space-y-3">
+                            <li><a href="conditions.html"
+                                    class="text-slate-600 dark:text-slate-400 hover:text-orange-500 hover:translate-x-2 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-all"><i
+                                        class="fas fa-chevron-right text-[10px]"></i> Back & Neck Pain</a></li>
+                            <li><a href="conditions.html"
+                                    class="text-slate-600 dark:text-slate-400 hover:text-orange-500 hover:translate-x-2 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-all"><i
+                                        class="fas fa-chevron-right text-[10px]"></i> Arthritis Care</a></li>
+                            <li><a href="conditions.html"
+                                    class="text-slate-600 dark:text-slate-400 hover:text-orange-500 hover:translate-x-2 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-all"><i
+                                        class="fas fa-chevron-right text-[10px]"></i> Stroke Recovery</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Programs Menu -->
+                    <div class="space-y-6" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-bold flex items-center gap-3 text-teal-700 dark:text-teal-400">
+                            <i class="fas fa-tasks"></i> Programs
+                        </h3>
+                        <ul class="space-y-3">
+                            <li><a href="programs.html"
+                                    class="text-slate-600 dark:text-slate-400 hover:text-orange-500 hover:translate-x-2 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-all"><i
+                                        class="fas fa-chevron-right text-[10px]"></i> Pain Management</a></li>
+                            <li><a href="programs.html"
+                                    class="text-slate-600 dark:text-slate-400 hover:text-orange-500 hover:translate-x-2 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-all"><i
+                                        class="fas fa-chevron-right text-[10px]"></i> Sports Performance</a></li>
+                            <li><a href="programs.html"
+                                    class="text-slate-600 dark:text-slate-400 hover:text-orange-500 hover:translate-x-2 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-all"><i
+                                        class="fas fa-chevron-right text-[10px]"></i> Fall Prevention</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Portal Menu -->
+                    <div class="space-y-6" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-xl font-bold flex items-center gap-3 text-teal-700 dark:text-teal-400">
+                            <i class="fas fa-user-circle"></i> Quick Access
+                        </h3>
+                        <div class="flex flex-col gap-3">
+                            <a href="login.html"
+                                class="btn btn-primary h-12 hover:shadow-lg hover:-translate-y-1 hover:brightness-110 transition-all focus:ring-4 focus:ring-teal-500/50">Patient
+                                Portal</a>
+                            <a href="contact.html"
+                                class="btn btn-accent h-12 hover:shadow-lg hover:-translate-y-1 hover:brightness-110 transition-all focus:ring-4 focus:ring-orange-500/50">Book
+                                Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Banner -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="bg-orange-500 rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden"
+                    data-aos="zoom-in">
+                    <div class="absolute inset-0 bg-black/5 pointer-events-none"></div>
+                    <div class="relative z-10 max-w-3xl mx-auto">
+                        <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">Ready to Start Your Recovery Journey?
+                        </h2>
+                        <p class="text-white/90 text-xl mb-12">Book your initial evaluation today and take the first
+                            step towards a pain-free life.</p>
+                        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                            <a href="contact.html"
+                                class="btn bg-white text-orange-600 hover:bg-slate-100 hover:scale-105 active:scale-95 px-6 md:px-12 text-lg focus:ring-4 focus:ring-white/50 shadow-xl transition-all">Book
+                                Now</a>
+                            <a href="tel:+15551234567"
+                                class="btn border-2 border-white text-white hover:bg-white hover:text-orange-600 hover:scale-105 active:scale-95 px-6 md:px-12 text-base md:text-lg focus:ring-4 focus:ring-white/50 transition-all">Call
+                                Us: (555) 123-4567</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            initPage('home');
+        });
+    </script>
+</body>
+
+</html>

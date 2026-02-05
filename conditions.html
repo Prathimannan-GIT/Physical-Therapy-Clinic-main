@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" x-data :class="{ 'dark': $store.theme.dark }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions We Treat | Bones & Balance</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+    <link rel="apple-touch-icon" href="assets/favicon.svg?v=3">
+    <link rel="shortcut icon" href="assets/favicon.svg?v=3">
+
+    <!-- Theme Toggle Script (Rule 4) -->
+    <script>
+        window.tailwind = {
+            config: { darkMode: 'class' }
+        };
+        if (localStorage.getItem('dark') === 'true' ||
+            (!('dark' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="components.js" defer></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 pt-[70px]">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="py-20 bg-teal-800 text-white relative">
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h1 class="text-5xl font-bold mb-6" data-aos="fade-up">Conditions We Treat</h1>
+                <p class="text-xl text-teal-100 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Identifying
+                    the root cause of your discomfort to provide long-lasting relief and improved quality of life.</p>
+            </div>
+        </section>
+
+        <!-- Search / Filter (Mock) -->
+        <section class="py-12 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row gap-6 items-center">
+                <div class="relative flex-grow max-w-xl">
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" placeholder="Search conditions (e.g. back pain)..."
+                        class="w-full pl-12 pr-4 py-3 bg-slate-50 dark:bg-slate-800 rounded-xl border-none focus:ring-2 focus:ring-teal-500">
+                </div>
+                <div class="flex gap-2">
+                    <button class="px-4 py-2 bg-teal-100 text-teal-700 rounded-lg font-bold text-sm">All</button>
+                    <button
+                        class="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-sm text-slate-500">Chronic</button>
+                    <button
+                        class="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-sm text-slate-500">Post-Op</button>
+                    <button
+                        class="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-sm text-slate-500">Neurological</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conditions Grid -->
+        <section class="py-24 bg-slate-50 dark:bg-slate-950">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Condition Card Template -->
+                    <div class="card p-8 group hover:border-teal-500 transition-colors" data-aos="fade-up">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400 text-2xl mb-6 group-hover:bg-teal-700 group-hover:text-white transition-all">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-4">Back & Neck Pain</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">Whether it's a herniated
+                            disc, sciatica, or chronic tension, our targeted therapist-led protocols provide immediate
+                            relief and long-term stabilization.</p>
+                        <a href="#"
+                            class="text-teal-700 dark:text-teal-400 font-bold hover:text-orange-500 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-colors group/link">
+                            <span class="border-b-2 border-transparent group-hover/link:border-orange-500">Read
+                                Treatment Protocol</span> <i
+                                class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <div class="card p-8 group hover:border-teal-500 transition-colors" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400 text-2xl mb-6 group-hover:bg-teal-700 group-hover:text-white transition-all">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-4">Knee & Shoulder Injuries</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">Expert care for ACL/MCL
+                            tears, rotator cuff injuries, and labral tears. We focus on restoring full range of motion
+                            and joint stability.</p>
+                        <a href="#"
+                            class="text-teal-700 dark:text-teal-400 font-bold hover:text-orange-500 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-colors group/link">
+                            <span class="border-b-2 border-transparent group-hover/link:border-orange-500">Read
+                                Treatment Protocol</span> <i
+                                class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <div class="card p-8 group hover:border-teal-500 transition-colors" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400 text-2xl mb-6 group-hover:bg-teal-700 group-hover:text-white transition-all">
+                            <i class="fas fa-hand-holding-medical"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-4">Arthritis Management</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">Specialized exercises and
+                            manual therapy to reduce inflammation, improve joint lubrication, and keep you active
+                            despite osteo or rheumatoid arthritis.</p>
+                        <a href="#"
+                            class="text-teal-700 dark:text-teal-400 font-bold hover:text-orange-500 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-colors group/link">
+                            <span class="border-b-2 border-transparent group-hover/link:border-orange-500">Read
+                                Treatment Protocol</span> <i
+                                class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <div class="card p-8 group hover:border-teal-500 transition-colors" data-aos="fade-up">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400 text-2xl mb-6 group-hover:bg-teal-700 group-hover:text-white transition-all">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-4">Stroke Recovery</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">Dedicated
+                            neuro-rehabilitation focused on neuroplasticity, gait training, and restoring daily
+                            functional independence.</p>
+                        <a href="#"
+                            class="text-teal-700 dark:text-teal-400 font-bold hover:text-orange-500 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-colors group/link">
+                            <span class="border-b-2 border-transparent group-hover/link:border-orange-500">Read
+                                Treatment Protocol</span> <i
+                                class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <div class="card p-8 group hover:border-teal-500 transition-colors" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400 text-2xl mb-6 group-hover:bg-teal-700 group-hover:text-white transition-all">
+                            <i class="fas fa-briefcase-medical"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-4">Work-Related Injuries</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">Repetitive strain, lifting
+                            injuries, or ergonomic-related pain. We help you recover and return to work safely with
+                            improved body mechanics.</p>
+                        <a href="#"
+                            class="text-teal-700 dark:text-teal-400 font-bold hover:text-orange-500 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-colors group/link">
+                            <span class="border-b-2 border-transparent group-hover/link:border-orange-500">Read
+                                Treatment Protocol</span> <i
+                                class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <div class="card p-8 group hover:border-teal-500 transition-colors" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-700 dark:text-teal-400 text-3xl mb-6 group-hover:bg-teal-700 group-hover:text-white transition-all">
+                            <i class="fas fa-heart-pulse"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-4">Chronic Pain</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">Pain management programs
+                            focusing on central sensitization, education, and progressive conditioning to break the
+                            cycle of chronic discomfort.</p>
+                        <a href="#"
+                            class="text-teal-700 dark:text-teal-400 font-bold hover:text-orange-500 focus:text-orange-500 focus:outline-none flex items-center gap-2 transition-colors group/link">
+                            <span class="border-b-2 border-transparent group-hover/link:border-orange-500">Read
+                                Treatment Protocol</span> <i
+                                class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ CTA -->
+        <section class="py-24 bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-4 max-w-4xl text-center">
+                <h2 class="text-3xl font-bold mb-10">Don't see your condition listed?</h2>
+                <p class="text-lg text-slate-500 mb-12">We treat a vast range of musculoskeletal and neurological
+                    conditions. Contact us for a consultation to discuss your specific needs with a licensed therapist.
+                </p>
+                <a href="contact.html"
+                    class="btn btn-primary px-8 hover:shadow-lg focus:ring-4 focus:ring-teal-700/50 transition-all">Inquire
+                    About My Condition</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            initPage('conditions');
+        });
+    </script>
+</body>
+
+</html>

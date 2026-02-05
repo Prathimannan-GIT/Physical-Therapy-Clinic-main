@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" x-data :class="{ 'dark': $store.theme.dark }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovery Specialized | Bones & Balance Campaign</title>
+    <meta name="description"
+        content="Dedicated recovery programs for athletes, seniors, and post-op patients. Check availability near you.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+    <link rel="apple-touch-icon" href="assets/favicon.svg?v=3">
+    <link rel="shortcut icon" href="assets/favicon.svg?v=3">
+
+    <!-- Theme Toggle Script (Rule 4) -->
+    <script>
+        window.tailwind = { config: { darkMode: 'class' } };
+        if (localStorage.getItem('dark') === 'true' ||
+            (!('dark' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="components.js" defer></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 pt-[70px]">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Animated Hero -->
+        <section class="h-[90vh] relative flex items-center justify-center text-center overflow-hidden bg-teal-900">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=2000"
+                    alt="Athlete Recovery" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-teal-900/70"></div>
+                <!-- Animated Background Circles -->
+                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/20 rounded-full blur-[100px] animate-pulse">
+                </div>
+                <div
+                    class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-[100px] animate-pulse [animation-delay:2s]">
+                </div>
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10" data-aos="zoom-in">
+                <h1 class="text-6xl md:text-8xl font-bold text-white mb-8">Revolutionizing<br><span
+                        class="text-orange-500">Recovery.</span></h1>
+                <p class="text-xl text-teal-100 max-w-2xl mx-auto mb-12">Expert physical therapy meets advanced
+                    technology. We help you move beyond your limitations.</p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="contact.html"
+                        class="btn btn-accent px-12 text-lg hover:shadow-lg hover:shadow-orange-500/40 focus:ring-4 focus:ring-orange-500/50 transition-all">Check
+                        Availability Near You</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recovery Timeline -->
+        <section class="py-24 bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold mb-4">Your Recovery Timeline</h2>
+                    <p class="text-slate-500 max-w-2xl mx-auto">A data-driven approach to getting you back on your feet.
+                    </p>
+                </div>
+
+                <div class="relative max-w-5xl mx-auto">
+                    <!-- Line -->
+                    <div
+                        class="absolute left-1/2 top-0 bottom-0 w-1 bg-slate-100 dark:bg-slate-800 -translate-x-1/2 hidden md:block">
+                    </div>
+
+                    <div class="space-y-24">
+                        <!-- Step 1 -->
+                        <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-0"
+                            data-aos="fade-right">
+                            <div class="md:w-1/2 md:pr-12 text-center md:text-right">
+                                <h3 class="text-2xl font-bold mb-4">01. Comprehensive Assessment</h3>
+                                <p class="text-slate-500">Full biomechanical evaluation and goal setting with our lead
+                                    therapists.</p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-teal-700 text-white rounded-full flex items-center justify-center font-bold z-10 shrink-0">
+                                1</div>
+                            <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative flex flex-col md:flex-row-reverse items-center gap-8 md:gap-0"
+                            data-aos="fade-left">
+                            <div class="md:w-1/2 md:pl-12 text-center md:text-left">
+                                <h3 class="text-2xl font-bold mb-4">02. Specialized Treatment</h3>
+                                <p class="text-slate-500">Manual therapy, exercise protocols, and modalitites focused on
+                                    immediate relief.</p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold z-10 shrink-0">
+                                2</div>
+                            <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-0"
+                            data-aos="fade-right">
+                            <div class="md:w-1/2 md:pr-12 text-center md:text-right">
+                                <h3 class="text-2xl font-bold mb-4">03. Advanced Rehab</h3>
+                                <p class="text-slate-500">Progressive loading and functional training to restore full
+                                    mobility and strength.</p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-teal-700 text-white rounded-full flex items-center justify-center font-bold z-10 shrink-0">
+                                3</div>
+                            <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative flex flex-col md:flex-row-reverse items-center gap-8 md:gap-0"
+                            data-aos="fade-left">
+                            <div class="md:w-1/2 md:pl-12 text-center md:text-left">
+                                <h3 class="text-2xl font-bold mb-4">04. Prevention Plan</h3>
+                                <p class="text-slate-500">Discharge protocol and home exercise programs to maintain
+                                    results long-term.</p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold z-10 shrink-0">
+                                4</div>
+                            <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insurance Section -->
+        <section class="py-24 bg-slate-50 dark:bg-slate-950">
+            <div class="container mx-auto px-4">
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-3xl p-12 shadow-xl border border-slate-100 dark:border-slate-800">
+                    <div class="flex flex-col lg:flex-row items-center gap-16">
+                        <div class="lg:w-1/2">
+                            <h2 class="text-4xl font-bold mb-6">Insurance & Payment Options</h2>
+                            <p class="text-lg text-slate-500 mb-8">We accept most major insurance plans and offer
+                                flexible private pay options to ensure you get the care you need.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-8">
+                                <div
+                                    class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 font-bold text-center">
+                                    Aetna</div>
+                                <div
+                                    class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 font-bold text-center">
+                                    BlueCross</div>
+                                <div
+                                    class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 font-bold text-center">
+                                    Cigna</div>
+                                <div
+                                    class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 font-bold text-center">
+                                    UnitedHealth</div>
+                            </div>
+                            <div class="text-center mt-8 w-full">
+                                <a href="#"
+                                    class="btn btn-outline w-full sm:w-auto mx-auto hover:shadow-md focus:ring-4 focus:ring-teal-500/30 transition-all inline-flex">Check
+                                    My Benefits</a>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600"
+                                alt="Insurance Process" class="rounded-2xl shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600"
+                                alt="Payment Options" class="rounded-2xl shadow-lg translate-y-8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="py-24 bg-teal-700 text-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold mb-6">Stay Healthy. Informed. Motivated.</h2>
+                    <p class="text-teal-100 mb-10 text-lg">Subscribe to our newsletter for weekly health tips, exercise
+                        guides, and exclusive offers.</p>
+                    <form class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                        <input type="email" placeholder="Enter your email address"
+                            class="flex-grow px-6 py-4 rounded-xl text-slate-900 outline-none focus:ring-4 focus:ring-orange-500/50 transition-all border-none">
+                        <button type="submit"
+                            class="btn btn-accent stay-healthy-btn px-10 py-4 h-auto whitespace-nowrap hover:shadow-xl hover:shadow-orange-600/40 hover:scale-105 hover:brightness-110 active:scale-95 focus:ring-4 focus:ring-orange-200/50 transition-all font-bold">Subscribe
+                            Now</button>
+                    </form>
+                    <p class="text-teal-200 mt-6 text-sm">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            initPage('home2');
+        });
+    </script>
+</body>
+
+</html>

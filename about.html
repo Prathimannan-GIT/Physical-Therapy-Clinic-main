@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" x-data :class="{ 'dark': $store.theme.dark }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Bones & Balance</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+    <link rel="apple-touch-icon" href="assets/favicon.svg?v=3">
+    <link rel="shortcut icon" href="assets/favicon.svg?v=3">
+
+    <!-- Theme Toggle Script (Rule 4) -->
+    <script>
+        window.tailwind = {
+            config: { darkMode: 'class' }
+        };
+        if (localStorage.getItem('dark') === 'true' ||
+            (!('dark' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="components.js" defer></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 pt-[70px]">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-24 bg-white dark:bg-slate-950">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up">
+                    <span class="text-orange-500 font-bold uppercase tracking-widest text-sm">Our Story</span>
+                    <h1 class="text-5xl md:text-6xl font-bold mt-4 mb-8">Pioneering Better <br><span
+                            class="text-teal-700">Movement for All.</span></h1>
+                    <p class="text-lg text-slate-500 dark:text-slate-400 mb-8 max-w-2xl mx-auto">Founded in 2015, Bones
+                        & Balance was born out of a simple vision: to bridge the gap between clinical rehabilitation and
+                        functional daily living.</p>
+                    <div
+                        class="bg-teal-50 dark:bg-teal-900/10 p-8 rounded-3xl border-l-4 border-teal-700 max-w-2xl mx-auto">
+                        <p class="italic text-teal-900 dark:text-teal-100 text-lg">"Our mission is to empower
+                            individuals to take control of their health through evidence-based therapy and personalized
+                            care."</p>
+                    </div>
+                </div>
+                <div class="relative max-w-5xl mx-auto" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200"
+                        alt="Our Modern Clinic" class="rounded-[3rem] shadow-2xl w-full h-[500px] object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values -->
+        <section class="py-24 bg-slate-100 dark:bg-slate-900">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div data-aos="fade-up">
+                        <div
+                            class="w-20 h-20 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg text-teal-700 text-3xl">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Patient-First</h3>
+                        <p class="text-slate-500">Every treatment plan is uniquely crafted around your specific goals
+                            and lifestyle.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-20 h-20 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg text-teal-700 text-3xl">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Evidence-Based</h3>
+                        <p class="text-slate-500">We utilize the latest clinical research and technology to ensure
+                            effective recovery.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-20 h-20 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg text-teal-700 text-3xl">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Holistic Care</h3>
+                        <p class="text-slate-500">We treat the whole person, not just the injury, considering mental and
+                            physical well-being.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet the Therapists (Rule 44: Compact size) -->
+        <section class="py-24 bg-white dark:bg-slate-950">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold mb-4">Meet Our Experts</h2>
+                    <p class="text-slate-500">Board-certified specialists dedicated to your recovery.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Rule 44: Compact Cards -->
+                    <div class="group" data-aos="fade-up">
+                        <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400"
+                                alt="Therapist"
+                                class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                        </div>
+                        <h4 class="font-bold text-lg dark:text-white">Dr. Emily Stone</h4>
+                        <p class="text-teal-600 text-sm font-bold uppercase mb-2">Lead Therapist</p>
+                        <p class="text-xs text-slate-500 line-clamp-2">Specializing in orthopedic rehabilitation and
+                            sports performance.</p>
+                    </div>
+                    <div class="group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400"
+                                alt="Therapist"
+                                class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                        </div>
+                        <h4 class="font-bold text-lg dark:text-white">Dr. Marcus Reed</h4>
+                        <p class="text-teal-600 text-sm font-bold uppercase mb-2">Neuro Specialist</p>
+                        <p class="text-xs text-slate-500 line-clamp-2">Expert in stroke recovery and Parkinson's
+                            management programs.</p>
+                    </div>
+                    <div class="group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=400"
+                                alt="Therapist"
+                                class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                        </div>
+                        <h4 class="font-bold text-lg dark:text-white">Sarah Thompson</h4>
+                        <p class="text-teal-600 text-sm font-bold uppercase mb-2">Pediatric PT</p>
+                        <p class="text-xs text-slate-500 line-clamp-2">Dedicated to helping children achieve
+                            developmental milestones.</p>
+                    </div>
+                    <div class="group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400"
+                                alt="Therapist"
+                                class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                        </div>
+                        <h4 class="font-bold text-lg dark:text-white">Dr. David Chen</h4>
+                        <p class="text-teal-600 text-sm font-bold uppercase mb-2">Manual Specialist</p>
+                        <p class="text-xs text-slate-500 line-clamp-2">Expert in joint mobilization and chronic pain
+                            management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            initPage('about');
+        });
+    </script>
+</body>
+
+</html>

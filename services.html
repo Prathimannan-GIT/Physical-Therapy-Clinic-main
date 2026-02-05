@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" x-data :class="{ 'dark': $store.theme.dark }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Bones & Balance Physical Therapy</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+    <link rel="apple-touch-icon" href="assets/favicon.svg?v=3">
+    <link rel="shortcut icon" href="assets/favicon.svg?v=3">
+
+    <!-- Theme Toggle Script (Rule 4) -->
+    <script>
+        window.tailwind = { config: { darkMode: 'class' } };
+        if (localStorage.getItem('dark') === 'true' ||
+            (!('dark' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="components.js" defer></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 pt-[70px]">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="py-20 bg-slate-900 text-white relative">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000"
+                    class="w-full h-full object-cover opacity-20" alt="Clinic Interior">
+            </div>
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h1 class="text-5xl font-bold mb-6" data-aos="fade-up">Our Specialized Services</h1>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">From sports
+                    injuries to chronic pain, our licensed therapists provide comprehensive care for every stage of your
+                    recovery.</p>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="py-24 bg-white dark:bg-slate-950">
+            <div class="container mx-auto px-4">
+                <!-- Rule 25: Display cards in balanced rows (2x2 or 4 in one row) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Orthopedic PT -->
+                    <div class="card flex flex-col h-full" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
+                            alt="Orthopedic PT" class="h-48 w-full object-cover">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold mb-4">Orthopedic Physical Therapy</h3>
+                            <p class="text-slate-500 mb-8 flex-grow">Treatment for musculoskeletal injuries affecting
+                                bones, joints, ligaments, and tendons.</p>
+                            <!-- Rule 8: CTA buttons on same horizontal line -->
+                            <a href="contact.html"
+                                class="btn btn-primary w-full text-center hover:shadow-lg focus:ring-4 focus:ring-teal-700/50 transition-all">Book
+                                Session</a>
+                        </div>
+                    </div>
+
+                    <!-- Sports Injury -->
+                    <div class="card flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800"
+                            alt="Sports Rehab" class="h-48 w-full object-cover">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold mb-4">Sports Injury Rehabilitation</h3>
+                            <p class="text-slate-500 mb-8 flex-grow">Advanced protocols to get athletes back to peak
+                                performance after sprains, tears, or fractures.</p>
+                            <a href="contact.html"
+                                class="btn btn-primary w-full text-center hover:shadow-lg focus:ring-4 focus:ring-teal-700/50 transition-all">Book
+                                Session</a>
+                        </div>
+                    </div>
+
+                    <!-- Post-Op -->
+                    <div class="card flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/post-surgery.jpg" alt="Post-Op Recovery" class="h-48 w-full object-cover">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold mb-4">Post-Surgery Rehabilitation</h3>
+                            <p class="text-slate-500 mb-8 flex-grow">Targeted recovery for joint replacements, spinal
+                                surgeries, and ligament repairs.</p>
+                            <a href="contact.html"
+                                class="btn btn-primary w-full text-center hover:shadow-lg focus:ring-4 focus:ring-teal-700/50 transition-all">Book
+                                Session</a>
+                        </div>
+                    </div>
+
+                    <!-- Manual Therapy -->
+                    <div class="card flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
+                            alt="Manual Therapy" class="h-48 w-full object-cover">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold mb-4">Manual Therapy Techniques</h3>
+                            <p class="text-slate-500 mb-8 flex-grow">Hands-on techniques including joint mobilization
+                                and soft tissue work to reduce pain.</p>
+                            <a href="contact.html"
+                                class="btn btn-primary w-full text-center hover:shadow-lg focus:ring-4 focus:ring-teal-700/50 transition-all">Book
+                                Session</a>
+                        </div>
+                    </div>
+
+                    <!-- Neurological -->
+                    <div class="card flex flex-col h-full" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800"
+                            alt="Neuro Therapy" class="h-48 w-full object-cover">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold mb-4">Neurological Therapy</h3>
+                            <p class="text-slate-500 mb-8 flex-grow">Rehab for stroke, Parkinson's disease, MS, and
+                                other neurological conditions.</p>
+                            <a href="contact.html"
+                                class="btn btn-primary w-full text-center hover:shadow-lg focus:ring-4 focus:ring-teal-700/50 transition-all">Book
+                                Session</a>
+                        </div>
+                    </div>
+
+                    <!-- Pediatric -->
+                    <div class="card flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/pediatric-therapy.jpg" alt="Pediatric Care" class="h-48 w-full object-cover">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold mb-4">Pediatric Therapy</h3>
+                            <p class="text-slate-500 mb-8 flex-grow">Specialized care for children with developmental
+                                delays or pediatric injuries.</p>
+                            <a href="contact.html"
+                                class="btn btn-primary w-full text-center hover:shadow-lg focus:ring-4 focus:ring-teal-700/50 transition-all">Book
+                                Session</a>
+                        </div>
+                    </div>
+
+                    <!-- Geriatric -->
+                    <div class="card flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/geriatric-care.jpg" alt="Geriatric Care" class="h-48 w-full object-cover">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold mb-4">Geriatric Care</h3>
+                            <p class="text-slate-500 mb-8 flex-grow">Focusing on balance, mobility, and independence for
+                                our senior patients.</p>
+                            <a href="contact.html"
+                                class="btn btn-primary w-full text-center hover:shadow-lg focus:ring-4 focus:ring-teal-700/50 transition-all">Book
+                                Session</a>
+                        </div>
+                    </div>
+
+                    <!-- Tele-Rehab -->
+                    <div class="card flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets/tele-rehab.jpg" alt="Tele-Rehab" class="h-48 w-full object-cover">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold mb-4">Tele-Rehab Sessions</h3>
+                            <p class="text-slate-500 mb-8 flex-grow">Convenient virtual assessments and follow-ups from
+                                the comfort of your home.</p>
+                            <a href="contact.html"
+                                class="btn btn-primary w-full text-center hover:shadow-lg focus:ring-4 focus:ring-teal-700/50 transition-all">Book
+                                Session</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-24 bg-teal-50 dark:bg-slate-900">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-8">Not sure which service you need?</h2>
+                <p class="text-lg text-slate-500 mb-12 max-w-2xl mx-auto">Schedule a free 15-minute phone consultation
+                    with our lead therapist to discuss your needs.</p>
+                <a href="contact.html"
+                    class="btn btn-accent px-12 text-lg hover:shadow-lg hover:shadow-orange-500/40 focus:ring-4 focus:ring-orange-500/50 transition-all">Schedule
+                    Free Call</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            initPage('services');
+        });
+    </script>
+</body>
+
+</html>
