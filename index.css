@@ -355,6 +355,19 @@ footer {
     box-shadow: 0 4px 6px -1px rgba(15, 118, 110, 0.2);
 }
 
+/* Remove focus outline from logo links on login/signup pages */
+a[href="index.html"].group:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Prevent brand name from breaking into two lines on signup page at 768px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    a[href="index.html"] .font-outfit {
+        white-space: nowrap !important;
+    }
+}
+
 @media (max-width: 640px) {
     h1 {
         font-size: 2rem !important;

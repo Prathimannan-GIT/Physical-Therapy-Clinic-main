@@ -162,7 +162,33 @@ const components = {
                     <div class="space-y-3">
                         <a href="index.html" class="block px-6 py-4 text-xl font-bold rounded-2xl transition-all ${activePage === 'home' ? 'mobile-nav-active shadow-lg shadow-teal-500/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">Home</a>
                         <a href="home2.html" class="block px-6 py-4 text-xl font-bold rounded-2xl transition-all ${activePage === 'home2' ? 'mobile-nav-active shadow-lg shadow-teal-500/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">Home 2</a>
-                        <a href="services.html" class="block px-6 py-4 text-xl font-bold rounded-2xl transition-all ${activePage === 'services' ? 'mobile-nav-active shadow-lg shadow-teal-500/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">Services</a>
+                        
+                        <!-- Services Dropdown for Mobile -->
+                        <div x-data="{ servicesOpen: false }">
+                            <button @click="servicesOpen = !servicesOpen" class="w-full flex items-center justify-between px-6 py-4 text-xl font-bold rounded-2xl transition-all ${activePage === 'services' ? 'mobile-nav-active shadow-lg shadow-teal-500/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">
+                                <span>Services</span>
+                                <i class="fas fa-chevron-down transition-transform" :class="servicesOpen ? 'rotate-180' : ''"></i>
+                            </button>
+                            <div x-show="servicesOpen" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 -translate-y-2"
+                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 x-transition:leave="transition ease-in duration-200"
+                                 x-transition:leave-start="opacity-100 translate-y-0"
+                                 x-transition:leave-end="opacity-0 -translate-y-2"
+                                 class="pl-12 pr-6 space-y-2 mt-2">
+                                <a href="services.html" class="block px-4 py-3 text-lg font-medium rounded-xl text-slate-600 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-700 transition-colors">
+                                    <i class="fas fa-th-large text-teal-600 w-5 mr-3"></i>All Services
+                                </a>
+                                <a href="#" class="block px-4 py-3 text-lg font-medium rounded-xl text-slate-600 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-700 transition-colors">
+                                    <i class="fas fa-bone text-teal-600 w-5 mr-3"></i>Orthopedic PT
+                                </a>
+                                <a href="#" class="block px-4 py-3 text-lg font-medium rounded-xl text-slate-600 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-700 transition-colors">
+                                    <i class="fas fa-running text-teal-600 w-5 mr-3"></i>Sports Rehab
+                                </a>
+                            </div>
+                        </div>
+                        
                         <a href="conditions.html" class="block px-6 py-4 text-xl font-bold rounded-2xl transition-all ${activePage === 'conditions' ? 'mobile-nav-active shadow-lg shadow-teal-500/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">Conditions</a>
                         <a href="programs.html" class="block px-6 py-4 text-xl font-bold rounded-2xl transition-all ${activePage === 'programs' ? 'mobile-nav-active shadow-lg shadow-teal-500/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">Programs</a>
                         <a href="about.html" class="block px-6 py-4 text-xl font-bold rounded-2xl transition-all ${activePage === 'about' ? 'mobile-nav-active shadow-lg shadow-teal-500/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">About Us</a>
